@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaCart - production-ready frontend e-commerce capstone">
+  <title>NovaCart | E-Commerce Capstone</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#/">Nova<span>Cart</span></a>
+    <nav>
+      <a href="#/" data-nav="home">Store</a>
+      <a href="#/admin" data-nav="admin">Admin</a>
+    </nav>
+    <div class="header-actions">
+      <button id="account-btn" class="icon-btn" title="Account">Account</button>
+      <button id="cart-btn" class="cart-btn">Cart <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main id="app" class="app-shell"></main>
+
+  <footer class="footer">
+    <p>NovaCart Capstone • ES6+ • REST API • Local Storage • Responsive UI</p>
+  </footer>
+
+  <dialog id="auth-modal" class="modal">
+    <form method="dialog" id="auth-form">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <h2 id="auth-title">Sign in</h2>
+      <p class="muted">Demo authentication — no real credentials are stored.</p>
+      <label>Name <input id="auth-name" autocomplete="name" placeholder="Your name"></label>
+      <label>Email <input id="auth-email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <button class="primary" id="auth-submit" value="submit">Sign in</button>
+      <button class="link-btn" type="button" id="toggle-auth">Create an account</button>
+    </form>
+  </dialog>
+
+  <dialog id="product-modal" class="modal">
+    <form method="dialog" id="product-form">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <h2 id="product-modal-title">Add product</h2>
+      <input type="hidden" id="product-id">
+      <label>Title <input id="product-title" required maxlength="100"></label>
+      <label>Price <input id="product-price" type="number" min="0.01" step="0.01" required></label>
+      <label>Category
+        <select id="product-category">
+          <option>electronics</option><option>jewelery</option><option>men's clothing</option><option>women's clothing</option>
+        </select>
+      </label>
+      <label>Image URL <input id="product-image" type="url" required></label>
+      <label>Description <textarea id="product-description" rows="4" required maxlength="500"></textarea></label>
+      <button class="primary" value="submit">Save product</button>
+    </form>
+  </dialog>
+
+  <aside id="cart-drawer" class="drawer" aria-label="Shopping cart">
+    <div class="drawer-head"><h2>Your Cart</h2><button id="close-cart">×</button></div>
+    <div id="cart-items"></div>
+    <div class="cart-total"><strong>Total</strong><strong id="cart-total">$0.00</strong></div>
+    <button id="checkout-btn" class="primary full">Demo Checkout</button>
+  </aside>
+  <div id="drawer-backdrop" class="backdrop"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
